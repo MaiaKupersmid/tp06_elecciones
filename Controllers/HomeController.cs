@@ -31,6 +31,7 @@ public class HomeController : Controller
 
     public IActionResult VerDetallePartido(int idPartido)
     {
+        ViewBag.DetallePartido=BD.VerInfoPartido(idPartido);
         return View();
     }
     public IActionResult VerDetalleCandidato(int idCandidato)
@@ -44,6 +45,8 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult GuardarCandidato(Candidato can)
     {
+        //Graba el candidato
+        // y con el ID de partido, vuelve a llamar verDetallePartido
         return View();
     }
     public IActionResult EliminarCandidato(int idCandidato,int idPartido)

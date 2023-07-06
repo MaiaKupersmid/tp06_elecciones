@@ -6,36 +6,58 @@ public static class BD
     public static string _connectionString = @"Server=localhost;
     Database=Elecciones2023;Trusted_Connection=True;";
 
-    
     public static void AgregarCandidato(Candidato can)
     {
-        using(SqlConnection BD = new SqlConnection(_connectionString))
-        {
-            string sql= "INSERT INTO Candidato(Apellido, Nombre, FechaNacimiento) VALUES(Kuper, Maiu, 08/06/2007)";
-            =BD.Query<,>(sql).ToList();
+        string sql = "INSERT INTO Candidato(Apellido, Nombre, FechaNacimiento) VALUES(@cApellido, @cNombre, @cFechaNacimiento)";
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
+            BD.Execute(sql, new {cNombre = can.Nombre, cApellido = can.Apellido, cFechaNacimiento = can.FechaNacimiento});
         }
     }
-    /*
 
     public static void EliminarCandidato(int idCandidato)
     {
-
+        string sql = "DELETE FROM Candidato WHERE IdCandidato = @candi";
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
+            BD.Execute(sql, new {candi = idCandidato});
+        }
     }
     public static Partido VerInfoPartido(int idPartido)
     {
-        return ;
+        Partido MiPartido = null;
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Partido WHERE idPartido = @ID";
+            MiPartido = BD.QueryFirstOrDefault<Partido>(sql, new {ID = idPartido});
+        }
+        return MiPartido;
     }
     public static Candidato VerInfoCandidato(int idCandidato)
     {
-        return ;
+        Candidato MiCandidato = null;
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
+            string sql = "SELECT * FROM Candidato WHERE idCandidato = @ID";
+            MiCandidato = BD.QueryFirstOrDefault<Candidato>(sql, new {ID = idCandidato});
+        }
+        return MiCandidato;
     }
-    public static Partido ListarPartidos()
+    
+    public static List<Partido> ListarPartidos()
     {
-        return a;
+        List<Partido> ListadoPartidos = new List<Partido>();
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
+        string sql= "SELECT nombre FROM Partido";
+        ListadoPartidos = BD.Query<Partido>(sql).ToList();
+        }
+        return ListadoPartidos;
     }
-    public static Candidato ListarCandidatos(int idPartido)
+    
+    public static List<Candidato> ListarCandidatos(int idPartido)
     {
-        return ;
+        List<Candidato> ListadoCandidatos = new List<Candidato>();
+        using(SqlConnection BD = new SqlConnection(_connectionString)){
+        string sql= "SELECT nombre FROM Candidato";
+        ListadoCandidatos = BD.Query<Candidato>(sql).ToList();
+        }
+        return ListadoCandidatos;
     }
-*/
+
 }
