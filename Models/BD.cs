@@ -40,11 +40,11 @@ public static class BD
         return MiCandidato;
     }
     
-    public static List<Partido> ListarPartidos()
+    public static List<Partido> ListarPartidos(int idPartido)
     {
         List<Partido> ListadoPartidos = new List<Partido>();
         using(SqlConnection BD = new SqlConnection(_connectionString)){
-        string sql= "SELECT nombre FROM Partido";
+        string sql= "SELECT * FROM Partido";
         ListadoPartidos = BD.Query<Partido>(sql).ToList();
         }
         return ListadoPartidos;
@@ -54,7 +54,7 @@ public static class BD
     {
         List<Candidato> ListadoCandidatos = new List<Candidato>();
         using(SqlConnection BD = new SqlConnection(_connectionString)){
-        string sql= "SELECT nombre FROM Candidato";
+        string sql= "SELECT * FROM Candidato";
         ListadoCandidatos = BD.Query<Candidato>(sql).ToList();
         }
         return ListadoCandidatos;

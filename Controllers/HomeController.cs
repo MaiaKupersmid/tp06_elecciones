@@ -31,23 +31,24 @@ public class HomeController : Controller
 
     public IActionResult VerDetallePartido(int idPartido)
     {
-        ViewBag.DetallePartido=BD.VerInfoPartido(idPartido);
+        ViewBag.listaP=BD.ListarPartidos(idPartido);
         return View();
     }
     public IActionResult VerDetalleCandidato(int idCandidato)
     {
+        ViewBag.listaC=BD.ListarCandidatos(idCandidato);
         return View();
     }
     public IActionResult AgregarCandidato(int idPartido)
     {
         return View();
+        //from en la view
     }
     [HttpPost]
-    public IActionResult GuardarCandidato(Candidato can)
+    public IActionResult GuardarCandidato(int IdPartido, string Apellido, string Nombre, DateTime FechaNacimiento, string Foto, string Postulacion)
     {
-        //Graba el candidato
-        // y con el ID de partido, vuelve a llamar verDetallePartido
-        return View();
+        BD.AgregarCandidato(new Candidato (IdPartido, Nombre, Apellido, FechaNacimiento, Foto, Postulacion));
+        return RedirectToAction("Index", "Home");
     }
     public IActionResult EliminarCandidato(int idCandidato,int idPartido)
     {
