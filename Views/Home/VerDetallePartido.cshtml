@@ -1,0 +1,13 @@
+<p> 
+    @ViewBag.P.idPartido
+    @ViewBag.P.Nombre
+    @ViewBag.P.SitioWeb
+    @ViewBag.P.FechaFundacion
+    @ViewBag.P.CantidadDiputados
+    @ViewBag.P.CantidadSenadores
+</p>
+
+<div>
+    <p><a href= '@Url.Action("VerDetalleCantidato", "Home",  new { idCandidato = @ViewBag.P.idPartido})'>Crear candidato</a></p>
+    <p><a href= '@Url.Action("VerDetalleCantidato", "Home",  new { idCandidato = @ViewBag.P.idPartido})'>Ver detalle del candidato</a></p>
+</div>

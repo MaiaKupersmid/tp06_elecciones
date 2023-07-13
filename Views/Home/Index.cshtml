@@ -2,41 +2,41 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
+<!-- cambiara FOR uncio y usar con  ViewBag.P.idPartido-->
+<main class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="Juntos">
     <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="/img/Juntosporelcambio.png" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+        <h5 class="card-title">Juntos por el Cambio</h5>
       </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      <div class= "card-footer">
+        <p><a href= '@Url.Action("VerDetallePartido", "Home",  new { idPartido = 3 })'>Ver detalle del partido</a></p>
       </div>
     </div>
   </div>
-  <div class="col">
+
+  <div class="Union">
     <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="/img/union-la-patria.webp" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+        <h5 class="card-title">Union por la Patria</h5>
       </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      <div class= "card-footer">
+        <p><a href= '@Url.Action("VerDetallePartido", "Home",  new { idPartido = 1 })'>Ver detalle del partido</a></p>
       </div>
     </div>
   </div>
-  <div class="col">
+
+  <div class="Libertad">
     <div class="card h-100">
-      <img src="..." class="card-img-top" alt="...">
+      <img src="/img/LaLibertadAvanza.png" class="card-img-top">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+        <h5 class="card-title">La Libertad Avanza</h5>
       </div>
-      <div class="card-footer">
-        <small class="text-body-secondary">Last updated 3 mins ago</small>
+      <div class= "card-footer">
+        <p><a href= '@Url.Action("VerDetallePartido", "Home",  new { idPartido = 2 })'>Ver detalle del partido</a></p>        
       </div>
     </div>
   </div>
-</div>
+</main>

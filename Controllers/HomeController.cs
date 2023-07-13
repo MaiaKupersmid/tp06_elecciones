@@ -31,12 +31,12 @@ public class HomeController : Controller
 
     public IActionResult VerDetallePartido(int idPartido)
     {
-        ViewBag.listaP=BD.ListarPartidos(idPartido);
+        ViewBag.P=BD.VerInfoPartido(idPartido);
         return View();
     }
     public IActionResult VerDetalleCandidato(int idCandidato)
     {
-        ViewBag.listaC=BD.ListarCandidatos(idCandidato);
+        ViewBag.C=BD.VerInfoCandidato(idCandidato);
         return View();
     }
     public IActionResult AgregarCandidato(int idPartido)
@@ -50,9 +50,10 @@ public class HomeController : Controller
         BD.AgregarCandidato(new Candidato (IdPartido, Nombre, Apellido, FechaNacimiento, Foto, Postulacion));
         return RedirectToAction("Index", "Home");
     }
-    public IActionResult EliminarCandidato(int idCandidato,int idPartido)
+    public IActionResult EliminarCandidato(int idCandidato, int idPartido)
     {
-        return View();
+        BD.EliminarCandidato(idCandidato);
+        return RedirectToAction("VerDetallePartido", "Home",  new { idPartido = idPartido });
     }
     public IActionResult Elecciones()
     {
