@@ -1,3 +1,4 @@
+namespace TP06_Jules.Models;
 public class Candidato
 {
     public int IdCandidato {get; set;}
