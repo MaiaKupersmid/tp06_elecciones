@@ -1,3 +1,4 @@
+namespace TP06_Jules.Models;
 public class Partido
 {
     public int idPartido {get; set;}
