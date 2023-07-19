@@ -1,6 +1,6 @@
 using System.Data.SqlClient;
 using Dapper;
-namespace TP06_Jules.Models;
+namespace TP06_Elecciones.Models;
 public static class BD
 {
     public static string _connectionString = @"Server=COMPUTADORALULI\SQLEXPRESS01;
