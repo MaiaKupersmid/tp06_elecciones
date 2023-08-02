@@ -1,13 +1,32 @@
-<p> 
-    @ViewBag.P.idPartido
-    @ViewBag.P.Nombre
-    @ViewBag.P.SitioWeb
-    @ViewBag.P.FechaFundacion
-    @ViewBag.P.CantidadDiputados
-    @ViewBag.P.CantidadSenadores
-</p>
+<div class="cards">
+  @foreach (Candidato c in ViewBag.ListarCandidatos)
+  {
+    <div class="card">
+      <img class="imgCan" src='@c.Foto' class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">@c.Nombre @c.Apellido</h5>
+        <a href='@Url.Action("VerDetalleCandidato", "Home",  new {idCandidato = @c.IdCandidato})'
+          class="btn btn-primary">Más Información</a>
+      </div>
+    </div>
+  }
+</div>
 
-<div>
-    <p><a href= '@Url.Action("VerDetalleCantidato", "Home",  new { idCandidato = @ViewBag.P.idPartido})'>Crear candidato</a></p>
-    <p><a href= '@Url.Action("VerDetalleCantidato", "Home",  new { idCandidato = @ViewBag.P.idPartido})'>Ver detalle del candidato</a></p>
+<br>
+
+<div class="card">
+  <div class="card-header">
+    <b><u>@ViewBag.Partido.Nombre</u></b>
+  </div>
+  <div class="card-body">
+    <img src=@ViewBag.Partido.Logo>
+    <p class="card-text">Visita el sitio web del <a href='@ViewBag.Partido.SitioWeb'>partido</a></p>
+    <p class="card-text">La fecha de fundacion del partido es el <u>@ViewBag.Partido.FechaFundacion</u></p>
+    <p class="card-text">La cantidad de diputados que posee el partido es de <u>@ViewBag.Partido.CantidadDiputados</u>
+    </p>
+    <p class="card-text">La cantidad de senadores que posee el partido es de <u>@ViewBag.Partido.CantidadSenadores</u>
+    </p>
+    <a href='@Url.Action("AgregarCandidato", "Home",  new {idPartido = @ViewBag.Partido.idPartido})'
+      class="btn btn-primary">Agregar Candidato</a>
+  </div>
 </div>

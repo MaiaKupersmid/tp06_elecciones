@@ -20,3 +20,38 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.contCenter{
+  display: flex;
+  justify-content: center;
+}
+
+.imgElec{
+  height: 500px;
+  width: auto;
+}
+
+.cards{
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+}
+
+.imgCan{
+  height: auto;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.card-img-top{
+  height: 180px;
+  width: 400px;
+}
+
+
+li a:hover{
+  color: black;
+  font-size: large;
+  transition: 0.5s;
+}

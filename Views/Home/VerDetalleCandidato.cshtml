@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    <b><u>@ViewBag.C.Nombre @ViewBag.C.Apellido</u></b>
+  </div>
+  <div class="card-body">
+    <img src= @ViewBag.C.Foto>
+    <p class="card-text">Fecha de nacimenito: @ViewBag.C.FechaNacimiento</p>
+    <p class="card-text">Se postula para el cargo de <b>@ViewBag.C.Postulacion</b></p>
+    <a href= '@Url.Action("VerDetallePartido", "Home",  new {idPartido = @ViewBag.C.IdPartido})' class="btn btn-primary">Volver al partido</a>
+    <a href='@Url.Action("EliminarCandidato", "Home",  new {idCandidato = @ViewBag.C.IdCandidato})' class="btn btn-primary">Eliminar candidato</a>
+  </div>
+</div>

@@ -2,41 +2,16 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!-- cambiara FOR uncio y usar con  ViewBag.P.idPartido-->
-<main class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="Juntos">
-    <div class="card h-100">
-      <img src="/img/Juntosporelcambio.png" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">Juntos por el Cambio</h5>
-      </div>
-      <div class= "card-footer">
-        <p><a href= '@Url.Action("VerDetallePartido", "Home",  new { idPartido = 3 })'>Ver detalle del partido</a></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="Union">
-    <div class="card h-100">
-      <img src="/img/union-la-patria.webp" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">Union por la Patria</h5>
-      </div>
-      <div class= "card-footer">
-        <p><a href= '@Url.Action("VerDetallePartido", "Home",  new { idPartido = 1 })'>Ver detalle del partido</a></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="Libertad">
-    <div class="card h-100">
-      <img src="/img/LaLibertadAvanza.png" class="card-img-top">
-      <div class="card-body">
-        <h5 class="card-title">La Libertad Avanza</h5>
-      </div>
-      <div class= "card-footer">
-        <p><a href= '@Url.Action("VerDetallePartido", "Home",  new { idPartido = 2 })'>Ver detalle del partido</a></p>        
-      </div>
-    </div>
-  </div>
-</main>
+<div class="cards">
+    @foreach (Partido p in ViewBag.ListadoPartidos)
+    {
+        <div class="card">
+            <img src='@p.Logo' class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@p.Nombre</h5>
+                <a href='@Url.Action("VerDetallePartido", "Home",  new {idPartido = @p.idPartido})'
+                    class="btn btn-primary">Más Información</a>
+            </div>
+        </div>
+    }
+</div>

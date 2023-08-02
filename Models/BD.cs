@@ -3,15 +3,15 @@ using Dapper;
 namespace TP06_Elecciones.Models;
 public static class BD
 {
-    public static string _connectionString = @"Server=COMPUTADORALULI\SQLEXPRESS01;
+    public static string _connectionString = @"Server=LOCALHOST;
     Database=Elecciones2023;Trusted_Connection=True;";
 
     public static void AgregarCandidato(Candidato can)
     {
-        string sql = "INSERT INTO Candidato(Apellido, Nombre, FechaNacimiento) VALUES(@cApellido, @cNombre, @cFechaNacimiento)";
+        string sql = "INSERT INTO Candidato(IdPartido, Nombre, Apellido, FechaNacimiento, Postulacion, Foto) VALUES(@cIdPartido, @cNombre, @cApellido, @cFechaNacimiento, @cPostulacion, @cFoto)";
         using (SqlConnection BD = new SqlConnection(_connectionString))
         {
-            BD.Execute(sql, new { cNombre = can.Nombre, cApellido = can.Apellido, cFechaNacimiento = can.FechaNacimiento });
+            BD.Execute(sql, new {cIdPartido = can.IdPartido, cNombre = can.Nombre, cApellido = can.Apellido, cFechaNacimiento = can.FechaNacimiento, cPostulacion = can.Postulacion, cFoto = can.Foto });
         }
     }
 
@@ -61,7 +61,7 @@ public static class BD
         using (SqlConnection BD = new SqlConnection(_connectionString))
         {
             string sql = "SELECT * FROM Candidato WHERE idPartido = @ID";
-            ListadoCandidatos = BD.Query<Candidato>(sql).ToList();
+            ListadoCandidatos = BD.Query<Candidato>(sql, new { ID = idPartido }).ToList();
         }
         return ListadoCandidatos;
     }
