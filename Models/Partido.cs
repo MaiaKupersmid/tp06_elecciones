@@ -9,15 +9,18 @@ public class Partido
     public int CantidadDiputados {get; set;}
     public int CantidadSenadores {get; set;}
 
-    public Partido(int IdPartido, string nombre, string logo, string sitioWeb, DateTime fechaFundacion, int cantidadDiputados, int cantidadSenadores){
-        idPartido = IdPartido;
+    public Partido(int idpartido,string nombre, string logo, string sitioWeb, DateTime fechaFundacion, int cantidadDiputados, int cantidadSenadores){
+        idPartido = idpartido;
         Nombre = nombre;
         Logo = logo;
         SitioWeb = sitioWeb;
         FechaFundacion = fechaFundacion; 
         CantidadDiputados = cantidadDiputados;
         CantidadSenadores = cantidadSenadores;
-    }  
+    }
+
+
+
     public Partido(string nombre, string logo, string sitioWeb, DateTime fechaFundacion, int cantidadDiputados, int cantidadSenadores){
         Nombre = nombre;
         Logo = logo;

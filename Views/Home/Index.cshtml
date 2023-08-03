@@ -2,16 +2,26 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="cards">
+<h2>Partidos 2023</h2>
+
+<div class="cards-index">
     @foreach (Partido p in ViewBag.ListadoPartidos)
     {
+
         <div class="card">
             <img src='@p.Logo' class="card-img-top" alt="...">
+            
             <div class="card-body">
                 <h5 class="card-title">@p.Nombre</h5>
                 <a href='@Url.Action("VerDetallePartido", "Home",  new {idPartido = @p.idPartido})'
-                    class="btn btn-primary">Más Información</a>
+                    class="btn btn-primary">Más Información </a>
             </div>
         </div>
     }
+</div>
+
+<div>
+    <a href='@Url.Action("AgregarPartido", "Home")'
+        class="btn btn-primary">Agregar Partido
+    </a>
 </div>

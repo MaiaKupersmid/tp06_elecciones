@@ -49,10 +49,23 @@ public class HomeController : Controller
         return View();
     }
     
+     public IActionResult AgregarPartido(int idPartido)
+    {
+        ViewBag.idPartido = idPartido;
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult GuardarPartido(string Nombre, string Logo, string SitioWeb, DateTime FechaFundacion, int CantidadDiputados, int CantidadSenadores)
+    {
+        BD.AgregarPartido(new Partido (Nombre, Logo, SitioWeb, FechaFundacion, CantidadDiputados, CantidadSenadores));
+        return RedirectToAction("Index", "Home");
+    }
+
     [HttpPost]
     public IActionResult GuardarCandidato(int idPartido, string Apellido, string Nombre, DateTime FechaNacimiento, string Foto, string Postulacion)
     {
-        BD.AgregarCandidato(new Candidato (idPartido, Nombre, Apellido, FechaNacimiento, Foto, Postulacion));
+        BD.AgregarCandidato(new Candidato (idPartido, Apellido, Nombre, FechaNacimiento, Foto, Postulacion));
         return RedirectToAction("Index", "Home");
     }
 

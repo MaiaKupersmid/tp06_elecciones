@@ -15,6 +15,15 @@ public static class BD
         }
     }
 
+    public static void AgregarPartido(Partido par)
+    {
+        string sql = "INSERT INTO Partido(Nombre, Logo, SitioWeb, FechaFundacion, CantidadDiputados, CantidadSenadores) VALUES(@pNombre, @pLogo, @pSitioWeb, @pFechaFundacion, @pCantidadDiputados, @pCantidadSenadore)";
+        using (SqlConnection BD = new SqlConnection(_connectionString))
+        {
+            BD.Execute(sql, new {pNombre = par.Nombre, pLogo = par.Logo, pSitioWeb = par.SitioWeb, pFechaFundacion = par.FechaFundacion, pCantidadDiputados = par.CantidadDiputados, pCantidadSenadore = par.CantidadSenadores});
+        }
+    }
+
     public static void EliminarCandidato(int idCandidato)
     {
         string sql = "DELETE FROM Candidato WHERE IdCandidato = @candi";

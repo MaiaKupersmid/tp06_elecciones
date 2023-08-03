@@ -1,0 +1,35 @@
+<h3>Agregar informacion el Partido</h3>
+<form action='@Url.Action("GuardarPartido", "Home")' method="post">
+
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Nombre</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" name="Nombre" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Logo</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" name="Logo" aria-describedby="inputGroup-sizing-lg">
+    </div>
+    
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Sitio Web</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" name="SitioWeb" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="input-group input-group-lg">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Fecha de fundacion</span>
+        <input type="date" class="form-control" aria-label="Sizing example input" name="FechaFundacion" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="inputGroup-sizing-lg">Cantidad diputados</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" name="Apellido" aria-describedby="inputGroup-sizing-lg">
+
+        <span class="input-group-text" id="inputGroup-sizing-lg">Cantidad senadores</span>
+        <input type="text" class="form-control" aria-label="Sizing example input" name="Apellido" aria-describedby="inputGroup-sizing-lg">
+    </div>
+
+    <div class="col-12">
+        <button class="btn btn-primary" type="submit">Guardar partido</button>
+    </div>
+</form>

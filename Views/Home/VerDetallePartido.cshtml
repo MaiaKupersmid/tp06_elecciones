@@ -18,8 +18,11 @@
   <div class="card-header">
     <b><u>@ViewBag.Partido.Nombre</u></b>
   </div>
-  <div class="card-body">
-    <img src=@ViewBag.Partido.Logo>
+  <div class="card-body-partido">
+  <div class="fotoLogo">
+    <img class="imgPart" src=@ViewBag.Partido.Logo>
+  </div>
+  <div class="texto">
     <p class="card-text">Visita el sitio web del <a href='@ViewBag.Partido.SitioWeb'>partido</a></p>
     <p class="card-text">La fecha de fundacion del partido es el <u>@ViewBag.Partido.FechaFundacion</u></p>
     <p class="card-text">La cantidad de diputados que posee el partido es de <u>@ViewBag.Partido.CantidadDiputados</u>
@@ -27,6 +30,8 @@
     <p class="card-text">La cantidad de senadores que posee el partido es de <u>@ViewBag.Partido.CantidadSenadores</u>
     </p>
     <a href='@Url.Action("AgregarCandidato", "Home",  new {idPartido = @ViewBag.Partido.idPartido})'
-      class="btn btn-primary">Agregar Candidato</a>
+      class="btn btn-primary">Agregar Candidato
+    </a>
+  </div>
   </div>
 </div>
